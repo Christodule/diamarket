@@ -179,13 +179,13 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <Link to="/" className="navbar-brand">
-            🛒 Ecommerce App
+            🛒 Diamarket
           </Link>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <SearchInput />
             <li className="nav-item">
               <NavLink to="/" className="nav-link">
-                Home
+                Menu
               </NavLink>
             </li>
             <li className="nav-item dropdown">
@@ -218,12 +218,12 @@ const Header = () => {
               <>
                 <li className="nav-item">
                   <NavLink to="/register" className="nav-link">
-                    Register
+                    Créez un compte 
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink to="/login" className="nav-link">
-                    Login
+                    Se connecter
                   </NavLink>
                 </li>
               </>
@@ -256,7 +256,7 @@ const Header = () => {
                         to="/login"
                         className="dropdown-item"
                       >
-                        Logout
+                        Se deconnecter
                       </NavLink>
                     </li>
                   </ul>
