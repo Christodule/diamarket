@@ -14,12 +14,7 @@ const About = () => {
         </div>
         <div className="col-md-4">
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+          Bienvenue sur Diamarket, votre plateforme de vente en ligne internationale de confiance. En regroupant une multitude de marketplaces dans de nombreux pays, Diamarket offre aux utilisateurs une opportunité unique de vendre leurs produits à une audience mondiale. Que vous soyez un petit artisan ou une grande entreprise, notre plateforme vous permet de présenter vos articles à des millions de clients potentiels et de les livrer partout dans le monde. Avec Diamarket, élargissez vos horizons et faites prospérer votre commerce à l'échelle globale. Rejoignez-nous dès aujourd'hui et découvrez un monde de possibilités.
           </p>
         </div>
       </div>
