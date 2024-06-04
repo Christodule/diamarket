@@ -29,11 +29,12 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     role: {
-      type: Number,
-      default: 0,
+      type: String,
+      enum: ["user", "fleetadmin", "admin"],
+      default: "user",
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("users", userSchema);
+export default mongoose.model("User", userSchema);

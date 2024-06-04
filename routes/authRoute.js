@@ -1,4 +1,4 @@
-import express from "express";
+/*import express from "express";
 import {
   registerController,
   loginController,
@@ -53,4 +53,50 @@ router.put(
   orderStatusController
 );
 
+export default router;*/
+import express from "express";
+import {
+  registerController,
+  loginController,
+  forgotPasswordController,
+  testController,
+  updateProfileController,
+  getOrdersController,
+  getAllOrdersController,
+  orderStatusController
+} from "../controllers/authController.js";
+import {
+  requireSignIn,
+  isAdmin,
+  isFleetAdmin,
+  isUser
+} from "../middlewares/authMiddleware.js";
+
+const router = express.Router();
+
+// Register a new user
+router.post("/register", registerController);
+
+// User login
+router.post("/login", loginController);
+
+// Forgot password
+router.post("/forgot-password", forgotPasswordController);
+
+// Test route (for testing protected routes)
+router.get("/test", requireSignIn, testController);
+
+// Update user profile
+router.put("/update-profile", requireSignIn, updateProfileController);
+
+// Get user orders (for users)
+router.get("/orders", requireSignIn, isUser, getOrdersController);
+
+// Get all orders (for admin)
+router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
+
+// Update order status (for admin and fleetadmin)
+router.put("/order-status/:orderId", requireSignIn, isFleetAdmin, orderStatusController);
+
 export default router;
+

@@ -1,32 +1,32 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const UserMenu = () => {
+const FleetAdminMenu = () => {
   return (
     <div className="text-center">
       <div className="list-group dashboard-menu">
-        <h4>User Panel</h4>
+        <h4>Fleet Admin Panel</h4>
         <NavLink
-          to="/dashboard/user/products"
+          to="/dashboard/fleetadmin/warehouses"
           className="list-group-item list-group-item-action"
         >
-          My Products
+          Manage Warehouses
         </NavLink>
         <NavLink
-          to="/dashboard/user/create-product"
+          to="/dashboard/fleetadmin/products"
           className="list-group-item list-group-item-action"
         >
-          Create Product
+          Manage Products
         </NavLink>
         <NavLink
-          to="/dashboard/user/orders"
+          to="/dashboard/fleetadmin/orders"
           className="list-group-item list-group-item-action"
         >
-          My Orders
+          Manage Orders
         </NavLink>
       </div>
     </div>
   );
 };
 
-export default UserMenu;
+export default FleetAdminMenu;

@@ -27,6 +27,10 @@ import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import CreateWarehouse from "./pages/Admin/createWarehouse";
 import WarehouseDetail from "./pages/Admin/WarehouseDetail";
+import UserRoute from "./components/Routes/UserRoute";
+import FleetAdminRoute from "./components/Routes/FleetAdminRoute";
+import UserDashboard from "./pages/Admin/UserDashboard";
+import FleetAdminDashboard from "./pages/Admin/FleetAdminDashboard";
 
 function App() {
   return (
@@ -38,12 +42,26 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/dashboard" element={<PrivateRoute />}>
-          <Route path="user" element={<Dashboard />} />
+        <Route path="/dashboard" element={<UserRoute />}>
+          <Route path="user" element={<UserDashboard/>} />
           <Route path="user/orders" element={<Orders />} />
-          
           <Route path="user/profile" element={<Profile />} />
+          
+          <Route path="user/create-product" element={<CreateProduct />} />
+          <Route path="user/product/:slug" element={<UpdateProduct />} />
         </Route>
+        <Route path="/dashboard" element={<FleetAdminRoute />}>
+          <Route path="fleetAdmin" element={<FleetAdminDashboard/>} />
+        
+          <Route path="fleetAdmin/create-category" element={<CreateCategory />} />
+          <Route path="fleetAdmin/create-product" element={<CreateProduct />} />
+          <Route path="fleetAdmin/product/:slug" element={<UpdateProduct />} />
+          <Route path="fleetAdmin/products" element={<Products />} />
+          <Route path="fleetAdmin/WarehouseDetail/:slug" element={<WarehouseDetail/>} />
+          <Route path="fleetAdmin/users" element={<Users />} />
+          <Route path="fleetAdmin/orders" element={<AdminOrders />} />
+        </Route>
+
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/create-warehouse" element={<CreateWarehouse />} />
@@ -51,13 +69,12 @@ function App() {
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/product/:slug" element={<UpdateProduct />} />
           <Route path="admin/products" element={<Products />} />
-          
           <Route path="admin/WarehouseList" element={<WarehousList/>} />
-          
-        <Route path="admin/WarehouseDetail/:slug" element={<WarehouseDetail/>} />
+          <Route path="admin/WarehouseDetail/:slug" element={<WarehouseDetail/>} />
           <Route path="admin/users" element={<Users />} />
           <Route path="admin/orders" element={<AdminOrders />} />
         </Route>
+
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPasssword />} />
         <Route path="/login" element={<Login />} />

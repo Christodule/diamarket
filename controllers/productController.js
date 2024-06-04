@@ -16,7 +16,7 @@ var gateway = new braintree.BraintreeGateway({
   publicKey: process.env.BRAINTREE_PUBLIC_KEY,
   privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 });
-
+/*
 export const createProductController = async (req, res) => {
   try {
     const { name, description, price, category,warehouse, quantity, shipping } =
@@ -62,7 +62,49 @@ export const createProductController = async (req, res) => {
     });
   }
 };
+*/
 
+export const createProductController = async (req, res) => {
+  try {
+    const { name, description, price, category, quantity, shipping, warehouse } = req.body;
+
+    const warehouseExists = await warehouseModel.findById(warehouse);
+    if (!warehouseExists) {
+      return res.status(400).send({ message: "Invalid warehouse" });
+    }
+
+    const product = new productModel({
+      name,
+      description,
+      price,
+      category,
+      quantity,
+      shipping,
+      warehouse,
+      owner: req.user._id,
+    });
+
+    if (req.files && req.files.photo) {
+      product.photo.data = req.files.photo[0].buffer;
+      product.photo.contentType = req.files.photo[0].mimetype;
+    }
+
+    await product.save();
+
+    res.status(201).send({
+      success: true,
+      message: "Product created successfully",
+      product,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Server error",
+      error,
+    });
+  }
+};
 
 // filters
 export const productFiltersController = async (req, res) => {
